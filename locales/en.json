@@ -1,0 +1,23 @@
+{
+    "jewellery_store": "Jewellery Store",
+    "smash_vitrine": "Smash Vitrine",
+    "smash_progress": "Smashing Vitrine",
+    "blow_fuse_box": "Blow Fuse Box",
+
+    "notification_store_is_hit": "Store robbery is already in progress",
+    "notification_not_enough_police": "There are not enough police officers in the city",
+    "notification_no_item": "You don't have the required item",
+    "notification_left_fingerprint": "Left a fingerprint",
+    "notification_on_cooldown": "Jewellery Store is on cooldown (%s Minutes)",
+    "notification_thermite_fail": "You've failed the hack",
+    "notification_thermite_success": "The %s doors have been unlocked",
+    "notification_invalid_weapon": "You can't break  the vitrine with this weapon",
+    "notification_time_left": "You have %s Minutes until the Store shuts closed",
+
+    "dispatch_suspicious_title": "10-67 Suspicious Acitivty",
+    "dispatch_suspicious_message": "Someone has reported %s at %s",
+    "dispatch_explosion_title": "10-80 Explosion",
+    "dispatch_explosion_message": "An explosion has been reported at %s",
+    "dispatch_robbery_title" : "10-65 Jewelery Store Robbery",
+    "dispatch_robbery_message": "A %s robbing a Vangelico's at %s"
+}

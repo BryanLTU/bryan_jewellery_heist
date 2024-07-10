@@ -2,6 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'BryaN'
+version 'v0.0.0'
 
 lua54 'yes'
 
@@ -21,4 +22,9 @@ server_scripts {
 
 files {
     'locales/*.json'
+}
+
+dependencies {
+    'ps-ui',
+    'ox_lib'
 }
