@@ -6,6 +6,12 @@ if Config.Framework == 'esx' and GetResourceState('es_extended') == 'started' th
     AddEventHandler('esx:playerLoaded', function(playerId)
         SendClientVitrinesData(playerId)
     end)
+elseif Config.Framework == 'qb-core' and GetResourceState('qb-core') == 'started' then
+    FrameworkObj = exports['qb-core']:GetCoreObject()
+
+    AddEventHandler('QBCore:Server:PlayerLoaded', function(Player)
+        SendClientVitrinesData(Player.PlayerData.source)
+    end)
 end
 
 ---Notification for client
@@ -26,6 +32,7 @@ end
 _GetPlayerJobName = function(playerId)
     if Config.Framework == 'esx' then
         return FrameworkObj.GetPlayerFromId(playerId).getJob().name
+        return FrameworkObj.Functions.GetPlayer(playerId).PlayerData.job.name
     end
 
     return 'unemployeed'
@@ -39,6 +46,7 @@ end
 _HasEnoughItem = function(playerId, itemName, requiredAmount)
     if Config.Framework == 'esx' then
         return FrameworkObj.GetPlayerFromId(playerId).getInventoryItem(itemName).count >= requiredAmount
+        return exports['qb-inventory']:GetItemCount(source, itemName) >= requiredAmount
     end
 
     return false
@@ -51,6 +59,7 @@ end
 _RemoveInventoryItem = function(playerId, itemName, amount)
     if Config.Framework == 'esx' then
         FrameworkObj.GetPlayerFromId(playerId).removeInventoryItem(itemName, amount)
+        exports['qb-inventory']:RemoveItem(playerId, itemName, 1, false, 'bryan_jewellery_heist:server:removeItem')
     end
 end
 
@@ -61,5 +70,6 @@ end
 _GiveInventoryItem = function(playerId, itemName, amount)
     if Config.Framework == 'esx' then
         FrameworkObj.GetPlayerFromId(playerId).addInventoryItem(itemName, amount)
+        exports['qb-inventory']:AddItem(playerId, itemName, 1, false, false, 'bryan_jewellery_heist:server:addItem')
     end
 end

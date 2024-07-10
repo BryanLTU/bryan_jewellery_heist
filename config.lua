@@ -1,5 +1,6 @@
 Config = {}
 
+-- esx, qb-core
 Config.Framework = 'esx'
 
 Config.RobberyTime = 10 -- Minutes
