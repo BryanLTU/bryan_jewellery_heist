@@ -289,7 +289,7 @@ RegisterNetEvent('bryan_jewellery_heist:client:startThermite', function()
 
         _Notification(locale('notification_thermite_success', locale('jewellery_store')), 'success')
         plantTherminte()
-    end)
+    end, Config.Thermite.time, Config.Thermite.gridsize, Config.Thermite.incorrectBlocks)
 end)
 
 Citizen.CreateThread(function()
