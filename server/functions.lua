@@ -27,6 +27,8 @@ _GetPlayerJobName = function(playerId)
     if Config.Framework == 'esx' then
         return FrameworkObj.GetPlayerFromId(playerId).getJob().name
     end
+
+    return 'unemployeed'
 end
 
 ---Cehcks if the player has enough of the specified item
@@ -38,6 +40,8 @@ _HasEnoughItem = function(playerId, itemName, requiredAmount)
     if Config.Framework == 'esx' then
         return FrameworkObj.GetPlayerFromId(playerId).getInventoryItem(itemName).count >= requiredAmount
     end
+
+    return false
 end
 
 ---Remove inventory item
