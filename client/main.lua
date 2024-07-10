@@ -309,9 +309,3 @@ exports['ox_target']:addBoxZone({
         }
     }
 })
-
-RegisterCommand('skipthermite', function()
-    _Notification(locale('notification_thermite_success', locale('jewellery_store')), 'success')
-    plantTherminte()
-    SetEntityCoords(PlayerPedId(), -626.83, -235.35, 38.05, true, false, false, false)
-end, false)
