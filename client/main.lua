@@ -1,4 +1,5 @@
 local Vitrines
+local AlertTriggered = false
 
 lib.locale()
 
@@ -157,7 +158,11 @@ local smashVitrine = function(data)
     }) then
         lib.requestAnimDict(animDict)
         TaskPlayAnim(playerPed, animDict, 'exit', 3.0, 3.0, -1, 2, 0, false, false, false)
-        _Dispatch('robbery', data.vitrine.id)
+
+        if not AlertTriggered then
+            _Dispatch('robbery', data.vitrine.id)
+            AlertTriggered = true
+        end
 
         TriggerServerEvent('bryan_jewellery_heist:server:vitrineReward', data.vitrine.id)
         TriggerServerEvent('bryan_jewellery_heist:server:setVitrineBusy', data.vitrine.id, false)
@@ -229,6 +234,7 @@ RegisterNetEvent('bryan_jewellery_heist:client:setVitrineState', function(id, va
             vitrine:reset()
         end
     elseif id == 'all' then
+        AlertTriggered = false
         lib.array.forEach(Vitrines, function(vitrine)
             if value then
                 vitrine:open()
