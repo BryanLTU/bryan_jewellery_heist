@@ -48,12 +48,6 @@ Config.Thermite = {
     incorrectBlocks = 10
 }
 
-Config.Hack = {
-    item = 'phone',
-    blocks = 2,
-    time = 20
-}
-
 Config.Rewards = {
     {
         chance = 100,
