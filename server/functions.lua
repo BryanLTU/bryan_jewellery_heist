@@ -29,6 +29,19 @@ _Notification = function(playerId, msg, type)
     })
 end
 
+---Check if player's object exists (prevents multi char errors)
+---@param playerId number
+---@return boolean
+_IsPlayerActive = function(playerId)
+    if Config.Framework == 'esx' then
+        return FrameworkObj.GetPlayerFromId(playerId) ~= nil
+    elseif Config.Framework == 'qb-core' then
+        return FrameworkObj.Functions.GetPlayer(playerId) ~= nil
+    end
+
+    return false
+end
+
 ---Get player's job name
 ---@param playerId number
 ---@return string

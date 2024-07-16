@@ -18,7 +18,7 @@ local getPoliceCount = function()
     for _, playerId in ipairs(GetPlayers()) do
         local _playerId = tonumber(playerId)
 
-        if type(_playerId) == 'number' then
+        if type(_playerId) == 'number' and _IsPlayerActive(_playerId) then
             local playerJobName = _GetPlayerJobName(_playerId)
 
             for _, jobName in ipairs(Config.PoliceJobs) do
