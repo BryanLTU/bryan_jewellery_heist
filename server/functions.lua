@@ -64,7 +64,7 @@ _HasEnoughItem = function(playerId, itemName, requiredAmount)
     if Config.Framework == 'esx' then
         return FrameworkObj.GetPlayerFromId(playerId).getInventoryItem(itemName).count >= requiredAmount
     elseif Config.Framework == 'qb-core' then
-        return exports['qb-inventory']:GetItemCount(source, itemName) >= requiredAmount
+        return exports['qb-inventory']:GetItemCount(playerId, itemName) >= requiredAmount
     end
 
     return false
