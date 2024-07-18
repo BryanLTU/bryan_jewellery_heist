@@ -180,6 +180,10 @@ lib.cron.new('* * * * *', function()
             Executor = -1
             toggleLockdownVitrines(true)
             Cooldown = Config.Cooldown
+
+            if Config.AutoLock then
+                TriggerEvent('bryan_jewellery_heist:server:toggleDoors', true)
+            end
         end
     end
 end)
