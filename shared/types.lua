@@ -21,11 +21,21 @@
 ---@class QBJob
 ---@field name string
 
+---@class QBItem
+---@field name string
+---@field amount number
+
 ---@class QBPlayerData
 ---@field job QBJob
 
+---@class QBPlayerFunctions
+---@field AddItem fun(item: string, amount: number, slot: number?, info: any?)
+---@field RemoveItem fun(item: string, amount: number, slot: number?)
+---@field GetItemByName fun(item: string): QBItem
+
 ---@class QBPlayer
 ---@field PlayerData QBPlayerData
+---@field Functions QBPlayerFunctions
 
 ---@class QBFunctions
 ---@field GetPlayer fun(source: number): QBPlayer

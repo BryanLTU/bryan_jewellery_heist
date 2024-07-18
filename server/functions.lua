@@ -64,7 +64,7 @@ _HasEnoughItem = function(playerId, itemName, requiredAmount)
     if Config.Framework == 'esx' then
         return FrameworkObj.GetPlayerFromId(playerId).getInventoryItem(itemName).count >= requiredAmount
     elseif Config.Framework == 'qb-core' then
-        return exports['qb-inventory']:GetItemCount(playerId, itemName) >= requiredAmount
+        return FrameworkObj.Functions.GetPlayer(playerId).Functions.GetItemByName(itemName).amount >= requiredAmount
     end
 
     return false
@@ -78,7 +78,7 @@ _RemoveInventoryItem = function(playerId, itemName, amount)
     if Config.Framework == 'esx' then
         FrameworkObj.GetPlayerFromId(playerId).removeInventoryItem(itemName, amount)
     elseif Config.Framework == 'qb-core' then
-        exports['qb-inventory']:RemoveItem(playerId, itemName, 1, false, 'bryan_jewellery_heist:server:removeItem')
+        FrameworkObj.Functions.GetPlayer(playerId).Functions.RemoveItem(itemName, amount)
     end
 end
 
@@ -90,6 +90,6 @@ _GiveInventoryItem = function(playerId, itemName, amount)
     if Config.Framework == 'esx' then
         FrameworkObj.GetPlayerFromId(playerId).addInventoryItem(itemName, amount)
     elseif Config.Framework == 'qb-core' then
-        exports['qb-inventory']:AddItem(playerId, itemName, 1, false, false, 'bryan_jewellery_heist:server:addItem')
+        FrameworkObj.Functions.GetPlayer(playerId).Functions.AddItem(itemName, amount)
     end
 end
