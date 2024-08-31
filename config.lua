@@ -49,6 +49,11 @@ Config.Thermite = {
     incorrectBlocks = 10
 }
 
+Config.SoundAlarm = {
+    enable = true,
+    time = 60 -- How many seconds the alarm will go
+}
+
 Config.Rewards = {
     {
         chance = 100,

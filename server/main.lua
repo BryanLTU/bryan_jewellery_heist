@@ -80,6 +80,10 @@ RegisterNetEvent('bryan_jewellery_heist:server:setStoreHit', function(value)
 
     if value then
         RobberyTime = Config.RobberyTime
+
+        if Config.SoundAlarm.enable then
+            TriggerClientEvent('bryan_jewellery_heist:client:playSound', -1)
+        end
     end
 end)
 

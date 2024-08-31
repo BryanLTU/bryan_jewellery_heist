@@ -3,6 +3,28 @@ local AlertTriggered = false
 
 lib.locale()
 
+---Play alarm sound near Jewellery Store
+---@param coords vector3
+local playAlarmAtCoords = function(coords)
+    if not Config.SoundAlarm.enable then
+        return
+    end
+
+    while not RequestScriptAudioBank('ALARMS', false) do
+        Citizen.Wait(50)
+    end
+
+    local soundId = GetSoundId()
+
+    PlaySoundFromCoord(soundId, "Burglar_Bell", coords.x, coords.y, coords.z, 'Generic_Alarms', false, 0, false)
+
+    SetTimeout(Config.SoundAlarm.time * 1000, function()
+        StopSound(soundId)
+        ReleaseSoundId(soundId)
+        ReleaseNamedScriptAudioBank('ALARMS')
+    end)
+end
+
 local function isHoldingAValidWeapon()
     local ped = PlayerPedId()
     local pedWeapon = GetSelectedPedWeapon(ped)
@@ -296,6 +318,10 @@ RegisterNetEvent('bryan_jewellery_heist:client:startThermite', function()
         _Notification(locale('notification_thermite_success', locale('jewellery_store')), 'success')
         plantTherminte()
     end, Config.Thermite.time, Config.Thermite.gridsize, Config.Thermite.incorrectBlocks)
+end)
+
+RegisterNetEvent('bryan_jewellery_heist:client:playSound', function()
+    playAlarmAtCoords(Config.Locations.coords)
 end)
 
 Citizen.CreateThread(function()
