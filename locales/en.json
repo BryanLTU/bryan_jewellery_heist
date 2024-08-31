@@ -13,6 +13,7 @@
     "notification_thermite_success": "The %s doors have been unlocked",
     "notification_invalid_weapon": "You can't break  the vitrine with this weapon",
     "notification_time_left": "You have %s Minutes until the Store shuts closed",
+    "notification_doors_locked": "Doors have been locked!",
 
     "dispatch_suspicious_title": "10-67 Suspicious Acitivty",
     "dispatch_suspicious_message": "Someone has reported %s at %s",

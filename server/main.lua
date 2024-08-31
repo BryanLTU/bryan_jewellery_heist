@@ -183,6 +183,7 @@ lib.cron.new('* * * * *', function()
 
             if Config.AutoLock then
                 TriggerEvent('bryan_jewellery_heist:server:toggleDoors', true)
+                _Notification(Executor, locale('notification_doors_locked'), 'info')
             end
         end
     end
